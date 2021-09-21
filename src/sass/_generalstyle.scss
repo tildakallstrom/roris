@@ -5,8 +5,12 @@
 /*  font-family: 'IBM Plex Sans', sans-serif; weight 100,300,500*/
 @import 'dark';
 @import 'normalize';
+@import 'generalstyle';
 @import 'header';
 @import 'footer';
+@import 'mobile';
+@import 'computer';
+
 
 //variabel
 $base-color: #371836;

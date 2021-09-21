@@ -8,6 +8,18 @@ const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass')(require('sass'));
+const ts = require('gulp-typescript');
+
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+ 
+gulp.task('default', () =>
+    gulp.src('src/app.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(gulp.dest('dist'))
+);
 
 
 //sökvägar
@@ -16,6 +28,7 @@ const files = {
     cssPath: "src/**/*.css",
     scssPath: "src/**/*.scss",
     jsPath: "src/**/*.js",
+    tsPath: "src/typescript/*.ts",
     imagePath: "src/bilder/*"
 }
 
@@ -34,6 +47,17 @@ function jsTask() {
     .pipe(sourcemaps.write('../maps'))
     .pipe(dest('pub/js'));
 }
+
+function typescriptTask() {
+    return src(files.tsPath)
+    //.pipe(babel())
+    //.pipe(sourcemaps.init())
+    //.pipe(concat('script.js'))
+    //.pipe(terser())
+    //.pipe(sourcemaps.write('../maps'))
+    .pipe(dest('pub/js'));
+}
+
 
 //CSS-task, konkatinera och minifiera, se rätt fil vid inspekt
 /*function cssTask() {
@@ -71,10 +95,10 @@ function watchTask() {
     browserSync.init({
         server: "./pub"
     });
-    watch([files.htmlPath, files.jsPath, files.scssPath, files.imagePath], parallel(copyHTML, jsTask, imageTask, sassTask)).on('change', browserSync.reload);
+    watch([files.htmlPath, files.jsPath, files.scssPath, files.imagePath, files.tsPath], parallel(copyHTML, jsTask, imageTask, sassTask, typescriptTask)).on('change', browserSync.reload);
 }
 
 exports.default = series(
-    parallel(copyHTML, jsTask, imageTask, sassTask),
+    parallel(copyHTML, jsTask, imageTask, sassTask, typescriptTask),
     watchTask
 );
