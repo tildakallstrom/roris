@@ -10,18 +10,9 @@ const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass')(require('sass'));
 const ts = require('gulp-typescript');
 
-const gulp = require('gulp');
+//const gulp = require('gulp');
 const babel = require('gulp-babel');
  
-gulp.task('default', () =>
-    gulp.src('src/app.js')
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
-        .pipe(gulp.dest('dist'))
-);
-
-
 //sökvägar
 const files = {
     htmlPath: "src/**/*.html",
@@ -43,6 +34,9 @@ function jsTask() {
     return src(files.jsPath)
     .pipe(sourcemaps.init())
     .pipe(concat('script.js'))
+    .pipe(babel({
+        presets: ['@babel/env']
+    }))
     .pipe(terser())
     .pipe(sourcemaps.write('../maps'))
     .pipe(dest('pub/js'));

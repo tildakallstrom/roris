@@ -1,4 +1,6 @@
 
+js
+const foo = (a, b) => a + b;
 function hamburgermenu(m) {
     m.classList.toggle("change");
   }
