@@ -1,27 +1,35 @@
 /* css för darkmode */
 @media only screen and (prefers-color-scheme: dark) {
 
-html, :root, body {
-    background-color: black;
+    html,
+    :root,
+    body {
+        background-color: black;
+    }
+
+    .introsec,
+    .introsec1,
+    .introsec2 {
+        background-color: black;
+    }
+
+    h1,
+    .homeh1,
+    h2,
+    p,
+    .h1booking {
+        color: lightgray;
+    }
+
+    input[type=text]:focus {
+        background-color: darkgray;
+        border: none;
+    }
+
+    input[type=submit] {
+        background-color: darkgray;
+
+    }
+
+
 }
-
-.introsec, .introsec1, .introsec2 {
-    background-color: black;
-}
-
-   h1, .homeh1, h2, p, .h1booking {
-    color: lightgray;
-   }
-
-input[type=text]:focus {
-    background-color: darkgray;
-    border: none;
-  }
-
-   input[type=submit] {
-    background-color: darkgray;
-  
-  }
-  
- 
-} 
