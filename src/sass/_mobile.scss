@@ -1,102 +1,119 @@
 /* css för mobilskärm */
 @media only screen and (max-width: 900px) {
 
-  /* innehåll på sida*/
+    /* innehåll på sida*/
 
-@mixin main($rounded: false) {
-    background-image: url("../bilder/1header.jpg");
-    height: 280px; 
-    width: 100%;
-    background-position: center top; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed;
-    //if/else-sats
-    @if $rounded {
-        border-bottom-left-radius: 450px 30px;
-        border-bottom-right-radius: 450px 30px;
-    } @else {
-        border-bottom-left-radius: 150px 10px;
-        border-bottom-right-radius: 150px 10px;
-    }
-}
-.main {
-    @include main;
-}
+    @mixin main($rounded: false) {
+        background-image: url("../bilder/1header.jpg");
+        height: 280px;
+        width: 100%;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
 
-.intro {
-    color: white;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-right: 10px; 
-    padding-top: 4em;
-    font-family: 'Noto Sans JP', Sans-serif;
-}
-.button {
-    display: none;
-}
-.introsec {
-    padding-top: 1em;
-    padding-bottom: 3.5em;
-    margin: auto;
-    margin-bottom: 5em;
-}
-.introsec1 {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    margin-top: -5em;
-    background-color: #371836;
-    color: white;
-}
-//selector inheritance
-.introsec2 {
-    @extend .introsec;
-  }
- 
-/*text*/
-.introh21 {
-    font-family: 'Noto Sans JP', Sans-serif;
-    max-width: 540px;
-    padding-left: 1em;
-    padding-right: 1em;
-    margin: auto;
-}
-.centerh2 {
-    color: white;
-    font-family: 'IBM Plex Sans', sans-serif;
-    text-align: center;
-}
-.centerp {
-    max-width: 540px;
-    padding-left: 1em;
-    padding-right: 1em;
-    margin: auto;
-    padding-top: 0.5em;
-    color: white;
-}
-/*bilder -> formulär*/
-.introimg {
-    max-width: 380px;
-    width: 90%;
-    display: block;
-    margin: auto;
-    padding-top: 1em;
+        //if/else-sats
+        @if $rounded {
+            border-bottom-left-radius: 450px 30px;
+            border-bottom-right-radius: 450px 30px;
+        }
+
+        @else {
+            border-bottom-left-radius: 150px 10px;
+            border-bottom-right-radius: 150px 10px;
+        }
     }
+
+    .main {
+        @include main;
+    }
+
+    .intro {
+        color: white;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-right: 10px;
+        padding-top: 4em;
+        font-family: 'Noto Sans JP', Sans-serif;
+    }
+
+    .button {
+        display: none;
+    }
+
+    .introsec {
+        padding-top: 1em;
+        padding-bottom: 3.5em;
+        margin: auto;
+        margin-bottom: 5em;
+    }
+
+    .introsec1 {
+        padding-top: 2em;
+        padding-bottom: 2em;
+        margin-top: -5em;
+        background-color: #371836;
+        color: white;
+    }
+
+    //selector inheritance
+    .introsec2 {
+        @extend .introsec;
+    }
+
+    /*text*/
+    .introh21 {
+        font-family: 'Noto Sans JP', Sans-serif;
+        max-width: 540px;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin: auto;
+    }
+
+    .centerh2 {
+        color: white;
+        font-family: 'IBM Plex Sans', sans-serif;
+        text-align: center;
+    }
+
+    .centerp {
+        max-width: 540px;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin: auto;
+        padding-top: 0.5em;
+        color: white;
+    }
+
+    /*bilder -> formulär*/
+    .introimg {
+        max-width: 380px;
+        width: 90%;
+        display: block;
+        margin: auto;
+        padding-top: 1em;
+    }
+
     form {
         margin: auto;
         max-width: 280px;
     }
-    input[type=text], input[type=email], select, textarea {
-        max-width: 280px; 
-        padding: 12px; 
+
+    input[type=text],
+    input[type=email],
+    select,
+    textarea {
+        max-width: 280px;
+        padding: 12px;
         border: none;
-        box-sizing: border-box; 
+        box-sizing: border-box;
         resize: vertical;
         border-bottom: solid 1px;
         font-family: 'Noto Sans JP', Sans-serif;
         margin: auto;
-      }
-        input[type=submit] {
+    }
+
+    input[type=submit] {
         background-color: aqua;
         color: black;
         font-family: 'Noto Sans JP', Sans-serif;
@@ -105,9 +122,10 @@
         border-radius: 4px;
         max-width: 280px;
         cursor: pointer;
-      }
-      .container {
+    }
+
+    .container {
         padding-bottom: 4em;
         margin-bottom: -10em;
-     }
+    }
 }
