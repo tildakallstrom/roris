@@ -1,132 +1,126 @@
-/* css för större skärmar*/
 @media only screen and (min-width: 900px) {
+  @mixin main($rounded: false) {
+    background-image: url("../bilder/header.jpg");
+    height: 620px;
+    width: 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #e8f8f5;
 
-    /* sidinnehåll*/
-    @mixin main($rounded: false) {
-        background-image: url("../bilder/header.jpg");
-        height: 620px;
-        width: 100%;
-        background-position: center top;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-color: #e8f8f5;
-
-        //if-sats
-        @if $rounded {
-            border-bottom-left-radius: 450px 30px;
-            border-bottom-right-radius: 450px 30px;
-        }
+    @if $rounded {
+      border-bottom-left-radius: 450px 30px;
+      border-bottom-right-radius: 450px 30px;
     }
+  }
 
-    .main {
-        @include main($rounded: true);
+  .main {
+    @include main($rounded: true);
+  }
+
+  .intro {
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    padding-top: 12em;
+    font-family: "Noto Sans JP", Sans-serif;
+  }
+
+  .introp {
+    max-width: 540px;
+    margin: auto;
+  }
+
+  .introsec {
+    padding-top: 1em;
+    padding-bottom: 3.5em;
+    margin: auto;
+    margin-bottom: 5em;
+  }
+
+  .introsec2 {
+    @extend .introsec;
+  }
+
+  @mixin header($round: false) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 1em;
+    margin: auto;
+    margin-top: -5em;
+    padding-bottom: 3em;
+    background-color: #371836;
+    color: white;
+
+    @if $round {
+      border-top-left-radius: 450px 30px;
+      border-top-right-radius: 450px 30px;
+      border-bottom-left-radius: 450px 30px;
+      border-bottom-right-radius: 450px 30px;
     }
+  }
 
-    .intro {
-        color: white;
-        padding: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-right: 10px;
-        padding-top: 12em;
-        font-family: 'Noto Sans JP', Sans-serif;
-    }
+  .introsec1 {
+    @include header($round: true);
+  }
 
-    .introp {
-        max-width: 540px;
-        margin: auto;
-    }
+  .introh21 {
+    font-family: "Noto Sans JP", Sans-serif;
+    margin-left: 4.7em;
+    margin-top: 1.5em;
+  }
 
-    .introsec {
-        padding-top: 1em;
-        padding-bottom: 3.5em;
-        margin: auto;
-        margin-bottom: 5em;
-    }
+  .introimg {
+    max-width: 380px;
+    margin: auto;
+    margin-top: 1em;
+  }
 
-    .introsec2 {
-        @extend .introsec;
-    }
+  .centerp {
+    margin-left: 7em;
+  }
 
-    @mixin header($round: false) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding-top: 1em;
-        margin: auto;
-        margin-top: -5em;
-        padding-bottom: 3em;
-        background-color: #371836;
-        color: white;
+  form {
+    margin: auto;
+    max-width: 400px;
+  }
 
-        //if-sats
-        @if $round {
-            border-top-left-radius: 450px 30px;
-            border-top-right-radius: 450px 30px;
-            border-bottom-left-radius: 450px 30px;
-            border-bottom-right-radius: 450px 30px;
-        }
-    }
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 400px;
+    padding: 12px;
+    border: none;
+    box-sizing: border-box;
+    resize: vertical;
+    border-bottom: solid 1px;
+    font-family: "Noto Sans JP", Sans-serif;
+    margin: auto;
+  }
 
-    .introsec1 {
-        @include header($round: true);
-    }
+  input[type="submit"] {
+    background-color: aqua;
+    color: black;
+    font-family: "Noto Sans JP", Sans-serif;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    width: 400px;
+    cursor: pointer;
+  }
 
-    .introh21 {
-        font-family: 'Noto Sans JP', Sans-serif;
-        margin-left: 4.7em;
-        margin-top: 1.5em;
-    }
+  .centerh2 {
+    text-align: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    margin-left: 0.8em;
+    color: white;
+  }
 
-    .introimg {
-        max-width: 380px;
-        margin: auto;
-        margin-top: 1em;
-    }
-
-    .centerp {
-        margin-left: 7em;
-    }
-
-    /* formulär */
-    form {
-        margin: auto;
-        max-width: 400px;
-    }
-
-    input[type=text],
-    input[type=email],
-    select,
-    textarea {
-        width: 400px;
-        padding: 12px;
-        border: none;
-        box-sizing: border-box;
-        resize: vertical;
-        border-bottom: solid 1px;
-        font-family: 'Noto Sans JP', Sans-serif;
-        margin: auto;
-    }
-
-    input[type=submit] {
-        background-color: aqua;
-        color: black;
-        font-family: 'Noto Sans JP', Sans-serif;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        width: 400px;
-        cursor: pointer;
-    }
-
-    .centerh2 {
-        text-align: center;
-        font-family: 'IBM Plex Sans', sans-serif;
-        margin-left: 0.8em;
-        color: white;
-    }
-
-    .container {
-        padding-bottom: 4em;
-        margin-bottom: -10em;
-    }
+  .container {
+    padding-bottom: 4em;
+    margin-bottom: -10em;
+  }
 }
